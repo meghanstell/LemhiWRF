@@ -62,8 +62,8 @@ done
 echo "Processing dates: ${run}"
 echo "with folder experiment name matching: ${foldermatch}"
 echo "prefix: ${prefix:?Invalid prefix. Provide -pfx}"
-echo "region: ${region:?Invalid region. Provide -r}"
-echo "IBC: ${ibc:?Invalid IBC. Provide -i}"
+# echo "region: ${region:?Invalid region. Provide -r}"
+# echo "IBC: ${ibc:?Invalid IBC. Provide -i}"
 echo "xlon: ${xlon}" 
 echo "xlat: ${xlat}" 
 echo "xid: ${xid}" 
@@ -73,11 +73,18 @@ dtlead=4 # 4 files per hour: 0.25h intervals
 # Start here
 # ---------------------------------------------------------------
 
-source ~/.bashrc
+# source ~/.bashrc
 source ./loop_plots_function.sh
-source ./hpc.config
-source ./path.config
-conda activate forge38
+export myhome="/glade/u/home/${USER}"
+export mywork="/glade/work/${USER}"
+export myscratch="/glade/derecho/scratch/${USER}"
+export shpfn="['../geodata/lemhi']"
+export datapath="/glade/work/meghan/Lemhi/WRF/data"
+export figpath="/glade/work/meghan/Lemhi/WRF/plots"
+export geogfn="../data/geodata/geo_em.d02.nc.lemhi"
+# source ./hpc.config
+# source ./path.config
+# conda activate forge38
 
 # ---------------------------------------------------------------
 # xsec
