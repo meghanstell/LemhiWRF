@@ -1,0 +1,24 @@
+1) Define the cross section coordinates
+
+- Using Google Earth, import the lemhi geojson file 
+- Open the Ruler tool, select the Path tab, check the box to "show elevation profile", and draw a cross section. Copy the start and end coordinates
+
+2) Make sure the plots looks as expected and all paths are set correctly
+
+- Uncomment the line plt.ion() to see the plot 
+- From ipython create a xsec plot by calling:
+run plot_xsec_v3_agi_winds --cycle="2017013118" --exper="P1B-gI" --dom="d01" --dtlead=0.25 --fcst_lead=50 --datroot="/glade/derecho/scratch/frediani/WxMod/lemhi" --pltroot="/glade/work/frediani/Research/Projects/lemhi/plots" --geogfn="./data/geo_em.d02.nc.lemhi" --shpfn=['~/share/WxMod-postproc/geodata/lemhi'] --xs='x1' --xlat="44.784426,44.793861" --xlon="-114.516417,-112.953116"
+
+* Note the artgument --xs refers to the cross-section name. This allows to keep different cross-section plots (files) in the same folder and maintain a reference to the specific coordinates of various cross sections.  
+
+3) Use bash script to plot all simulation times 
+
+- Change plt.ion() to plt.ioff() in python code
+- Check paths in bash script sources (hpc.config, path.config) and load proper conda environment 
+- Run command: 
+./run_plots_seeding_xsec_nodiff.sh -d 2017013118 -f "P1B-gI" -pfx d01 -r lemhi -i era5 -xlat '44.784426,44.793861' -xlon '-114.516417,-112.953116' -xid x1
+
+* Note the single quotes for -xlat and -xlon. Also, remove white spaces from the coordinate string. 
+4) Animate
+convert -dispose none -delay 100 ${files} -loop 0 anim_xsecv3_x1_P1B-gI_2017013118.gif
+
