@@ -1,6 +1,8 @@
 #2017013118
 #2016120900 
 #2019012300
+
+#! /bin/bash
 #PBS -N WRF_2016120900_AgI_XSection
 #PBS -A P48500028
 #PBS -l select=1:ncpus=2:mem=2GB
