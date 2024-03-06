@@ -1,7 +1,16 @@
 #2017013118
 #2016120900 
 #2019012300
+#PBS -N WRF_2016120900_AgI_XSection
+#PBS -A P48500028
+#PBS -l select=1:ncpus=2:mem=2GB
+#PBS -l walltime=3:00:00
+#PBS -q casper
+#PBS -o ./logs
+#PBS -e ./logs
+#PBS -M meghan@ucar.edu
 
+#need to run_day for all groups for #2016120900 and #2019012300 using a qusb script - header is above
 
 #echo $variable to see what variables are in there
 
